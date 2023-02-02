@@ -13,6 +13,15 @@
           </set>
         </option>
       </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/../testaddress" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/../testaddress" />
+          </set>
+        </option>
+      </GradleProjectSettings>
     </option>
   </component>
 </project>
