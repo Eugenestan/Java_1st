@@ -46,22 +46,23 @@ public class RecTest {
     driver.findElement(By.name("email")).sendKeys("s.evgeniy@topnlab.ru");
     driver.findElement(By.name("password")).sendKeys("54255425");
     driver.findElement(By.xpath("//button[contains(., 'Войти' )]")).click();
-    WebElement dynamicElement = (new WebDriverWait(driver, 10))
+    WebElement dynamicElement = (new WebDriverWait(driver, 100))
             .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//li[contains(., 'Объекты')]")));
     driver.findElement(By.xpath("//li[contains(., 'Объекты')]")).click();
-    
-    driver.findElement(By.xpath("//a[contains(., ' Продавцы ' )]")).click();
+    driver.findElement(By.xpath("//a[contains(., 'Продавцы' )]")).click();
+    WebElement dynamicElement1 = (new WebDriverWait(driver, 100))
+            .until(ExpectedConditions.presenceOfElementLocated(By.id("realty-create-button")));
     driver.findElement(By.id("realty-create-button")).click();
+    WebElement dynamicElement2 = (new WebDriverWait(driver, 100))
+            .until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#realty-create-button-dropdown > .item:nth-child(1)")));
     driver.findElement(By.cssSelector("#realty-create-button-dropdown > .item:nth-child(1)")).click();
     driver.findElement(By.cssSelector(".modal__row:nth-child(2) .modal__field")).click();
-    driver.findElement(By.cssSelector(".modal__cell > .ng-dirty")).sendKeys("тест");
+    driver.findElement(By.xpath("//input[@formcontrolname='owner_name']")).sendKeys("тест");
     driver.findElement(By.cssSelector("#aboutRealtyPart_Realty_acc .title-wrap")).click();
     driver.findElement(By.cssSelector("#price .modal__field")).click();
-    driver.findElement(By.cssSelector(".ui > .ng-dirty")).sendKeys("123");
-    driver.findElement(By.cssSelector("#serviceFieldsPart_Realty_acc .title-wrap")).click();
-    js.executeScript("window.scrollTo(0,0)");
-    driver.findElement(By.cssSelector("#serviceFieldsPart_Realty > .modal__row .modal__field")).click();
-    driver.findElement(By.cssSelector(".modal__cell > .modal__field:nth-child(2)")).sendKeys("12");
+    driver.findElement(By.xpath("//input[@formcontrolname='price']")).sendKeys("123");
+    driver.findElement(By.xpath("//div[contains(.,'Служебные поля')]")).click();
+    driver.findElement(By.xpath("//input[@formcontrolname='comment_callcenter']")).sendKeys("12");
     driver.findElement(By.cssSelector(".mr-0")).click();
     driver.findElement(By.cssSelector(".modal__btn-block > .\\_red")).click();
   }
