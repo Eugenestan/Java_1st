@@ -35,22 +35,22 @@ public class RecTest {
     vars = new HashMap<String, Object>();
     WebDriverWait wait = new WebDriverWait(driver,10);
   }
-  @After
+  /*@After
   public void tearDown() {
     driver.quit();
-  }
+  }*/
   @Test
   public void rec() {
     driver.get("https://crm.topnlab.ru/authorize/login");
     driver.manage().window().setSize(new Dimension(1288, 816));
     driver.findElement(By.name("email")).sendKeys("s.evgeniy@topnlab.ru");
     driver.findElement(By.name("password")).sendKeys("54255425");
-    driver.findElement(By.cssSelector(".login")).click();
-    wait.until(ExpectedConditions.invisibilityOfElementLocated
-            (By.id("education-header-menu-objects")));
-    driver.findElement(By.id("education-header-menu-objects")).click();
-    driver.findElement(By.linkText("Продавцы")).click();
-
+    driver.findElement(By.xpath("//button[contains(., 'Войти' )]")).click();
+    WebElement dynamicElement = (new WebDriverWait(driver, 10))
+            .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//li[contains(., 'Объекты')]")));
+    driver.findElement(By.xpath("//li[contains(., 'Объекты')]")).click();
+    
+    driver.findElement(By.xpath("//a[contains(., ' Продавцы ' )]")).click();
     driver.findElement(By.id("realty-create-button")).click();
     driver.findElement(By.cssSelector("#realty-create-button-dropdown > .item:nth-child(1)")).click();
     driver.findElement(By.cssSelector(".modal__row:nth-child(2) .modal__field")).click();
