@@ -43,15 +43,18 @@ public class RecTest {
   public void rec() {
     driver.get("https://crm.topnlab.ru/authorize/login");
     driver.manage().window().setSize(new Dimension(1288, 816));
+    //login
     driver.findElement(By.name("email")).sendKeys("s.evgeniy@topnlab.ru");
     driver.findElement(By.name("password")).sendKeys("54255425");
     driver.findElement(By.xpath("//button[contains(., 'Войти' )]")).click();
+    //menu
     WebElement waitseller = (new WebDriverWait(driver, 100))
             .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//li[contains(., 'Объекты')]")));
-    driver.findElement(By.xpath("//li[contains(., 'Объекты')]")).click();
     WebElement waitobject = driver.findElement(By.xpath("//li[contains(., 'Объекты')]"));
     Actions action = new Actions(driver);
     action.moveToElement(waitobject).click().perform();
+    driver.findElement(By.xpath("//li[contains(., 'Объекты')]")).click();
+    //createobject
     driver.findElement(By.xpath("//div[@id='education-header-menu-objects-sale']")).click();
     WebElement waitcreatebutton = (new WebDriverWait(driver, 100))
             .until(ExpectedConditions.presenceOfElementLocated(By.id("realty-create-button")));
@@ -60,7 +63,29 @@ public class RecTest {
             .until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#realty-create-button-dropdown > .item:nth-child(1)")));
     driver.findElement(By.cssSelector("#realty-create-button-dropdown > .item:nth-child(1)")).click();
     driver.findElement(By.cssSelector(".modal__row:nth-child(2) .modal__field")).click();
-    driver.findElement(By.xpath("//input[@formcontrolname='owner_name']")).sendKeys("проверка1");
+    //firstblock
+    driver.findElement(By.xpath("//input[@formcontrolname='owner_name']")).sendKeys("Имя");
+    driver.findElement(By.xpath("//input[@formcontrolname='owner_lastname']")).sendKeys("Фамилия");
+    driver.findElement(By.xpath("//input[@formcontrolname='owner_middlename']")).sendKeys("Отчество");
+    driver.findElement(By.xpath("//input[@formcontrolname='phone']")).sendKeys("9111111111");
+    driver.findElement(By.xpath("//button[@class='ui icon button secondary ng-star-inserted']")).click();
+    driver.findElement(By.xpath("//div[6]/div[2]/div/input[@formcontrolname='phone']")).sendKeys("9111111111");
+    driver.findElement(By.xpath("//input[@placeholder='Введите email']")).sendKeys("mail@mail.ru");
+    driver.findElement(By.xpath("//div[7]/div[2]/div/button/i[@class='plus icon']")).click();
+    driver.findElement(By.xpath("//div[8]/div[2]/div/input[@placeholder='Введите email']")).sendKeys("mail1@mail.ru");
+    driver.findElement(By.xpath("//*[@id=\"source_id\"]/div[2]/ng-select/div/div/div[2]/input")).click();
+    driver.findElement(By.xpath("//span[contains(.,'Тестовый источник')]")).click();
+
+    //secondblock
+    driver.findElement(By.xpath("//div[@id='aboutDealPart_Realty_acc']")).click();
+    driver.findElement(By.xpath("//*[@id=\"is_first_sale\"]")).click();
+    driver.findElement(By.xpath("//*[@formcontrolname=\"mortgage\"]")).click();
+    driver.findElement(By.xpath("//*[@id=\"ac4abf4fcb72-0\"]")).click();
+    driver.findElement(By.xpath("//*[@formcontrolname=\"commission_ready_to_share_with_agent\"]")).click();
+    driver.findElement(By.xpath("////*[@id=\"a58754494bd7-0\"]")).click();
+
+
+
     driver.findElement(By.cssSelector("#aboutRealtyPart_Realty_acc .title-wrap")).click();
     driver.findElement(By.cssSelector("#price .modal__field")).click();
     driver.findElement(By.xpath("//input[@formcontrolname='price']")).sendKeys("123");
