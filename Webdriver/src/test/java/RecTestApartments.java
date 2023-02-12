@@ -19,6 +19,14 @@ public class RecTestApartments extends TestBase {
     TypePhones("9111111111", "9111111111");
     TypeMail("mail@mail.ru", "mail1@mail.ru");
     TypeSource();
+    driver.findElement(By.xpath("//div[@class='title-wrap' and contains(., ' Условия сделки ')]")).click();
+    /*driver.findElement(By.xpath("//*[@id=\"mortgage\"]/div[2]/ng-select/div/div/div[1]")).click();
+    driver.findElement(By.xpath("//span[@class='ng-option-label ng-star-inserted' and contains (.,'да')]")).click();*/
+    /*driver.findElement(By.xpath("//*[@id=\"is_first_sale\"]/div[2]/div/label/svg/use")).click();*/
+    driver.findElement(By.cssSelector("xpath=//ng-dropdown-panel/div/div[2]/div/span")).click();
+    driver.findElement(By.xpath("//span[@class='ng-option-label ng-star-inserted' and contains (.,'да')]")).click();
+    driver.findElement(By.xpath("//input[@formcontrolname=\"commission_ready_to_share_with_agent_value\"]")).sendKeys("10");
+
     
     AboutRealty();
     Price("123");

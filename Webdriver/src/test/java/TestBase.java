@@ -24,10 +24,10 @@ public class TestBase {
       login(new LoginFields("s.evgeniy@topnlab.ru", "54255425"));
     }
 
-    @After
+    /* @After
     public void tearDown() {
       driver.quit();
-    }
+    }*/
 
     protected void Check() {
       WebElement waitcreatebuttondrop2 = (new WebDriverWait(driver, 25))
