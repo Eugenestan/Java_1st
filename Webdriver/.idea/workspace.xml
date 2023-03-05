@@ -56,7 +56,22 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.RecTestApartments">
+    <configuration name="RecTestApartments" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Webdriver" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="test" />
+      <option name="MAIN_CLASS_NAME" value="test.RecTestApartments" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="TestCRM" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Webdriver" />
       <option name="PACKAGE_NAME" value="" />
@@ -92,6 +107,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.RecTestApartments" />
         <item itemvalue="JUnit.TestEquation" />
         <item itemvalue="JUnit.TestCRM" />
         <item itemvalue="JUnit.UntitledTest" />

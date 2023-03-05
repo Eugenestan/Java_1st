@@ -29,9 +29,18 @@ public class RecTestApartments extends TestBase {
     app.driver.findElement(By.xpath("//*[@id=\"mortgage\"]/div[2]/ng-select/div/span")).click();
     app.driver.findElement(By.xpath("//span[@class='ng-option-label ng-star-inserted' and contains (.,'да')]")).click();*/
     /*app.driver.findElement(By.xpath("//input[@id='isFirstSale']")).click();*/
-      WebElement element=app.driver.findElement(By.xpath("//input[@id='isFirstSale']"));
-      Actions act = new Actions(app.driver);
-      act.moveToElement(element).click().build().perform();
+    WebElement element = app.driver.findElement(By.xpath("//input[@id='isFirstSale']"));
+    Actions act = new Actions(app.driver);
+    act.moveToElement(element).click().build().perform();
+    WebElement auction = app.driver.findElement(By.xpath("//*[@id='is_auction']/div[2]/ng-select/div/div"));
+    Actions act1 = new Actions(app.driver);
+    act1.moveToElement(auction).click();
+    WebElement mortgage = app.driver.findElement(By.xpath("//*[@id=\"mortgage\"]/div[2]/ng-select/div/div/div[2]"));
+    Actions act2 = new Actions(app.driver);
+    act2.moveToElement(mortgage).click();
+    WebElement comission = app.driver.findElement(By.xpath("//*[@id=\"commission_ready_to_share_with_agent\"]/div[2]/ng-select/div/div/div[2]"));
+    Actions act3 = new Actions(app.driver);
+    act3.moveToElement(comission).click();
     /*driver.findElement(By.cssSelector("xpath=//ng-dropdown-panel/div/div[2]/div/span")).click();
     driver.findElement(By.xpath("//span[@class='ng-option-label ng-star-inserted' and contains (.,'да')]")).click();
     driver.findElement(By.xpath("//input[@formcontrolname=\"commission_ready_to_share_with_agent_value\"]")).sendKeys("10");*/
@@ -52,7 +61,6 @@ public class RecTestApartments extends TestBase {
 
     WebElement waitseller = (new WebDriverWait(app.driver, 100))
             .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//li[contains(., 'Объекты')]")));
-
     app.driver.findElement(By.xpath("//li[contains(., 'Объекты')]")).click();
     WebElement waitobject = (new WebDriverWait(app.driver, 100))
             .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//li[contains(., 'Продавцы')]")));

@@ -49,8 +49,7 @@ public class ApplicationManager {
     }
 
     public void Price(String PriceNumber) {
-      driver.findElement(By.cssSelector("#price .modal__field")).click();
-      driver.findElement(By.xpath("//input[@formcontrolname='price']")).sendKeys(PriceNumber);
+      driver.findElement(By.xpath("//input[@placeholder='Введите стоимость']")).sendKeys(PriceNumber);
     }
 
     public void AboutRealty() {
